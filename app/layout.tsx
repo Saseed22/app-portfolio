@@ -1,7 +1,10 @@
+import Footer from './components/footer'
+import React from 'react'
+import Header from './components/header'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import {aboutMeData,pages,contactMeLinks} from './data/data'
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body >
+        <Header name={aboutMeData.name} pages={pages} />
+        <main className='sm:mb-32 mb-16'>
+
+        {children}
+        </main>
+        <Footer contactMeLinks={contactMeLinks}/>
+      </body>
     </html>
   )
 }
